@@ -155,6 +155,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.zappar.sns": {
+      "version": "https://github.com/zappar-xr/unity-webgl-sns.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "7b8ce5f1c6d3673bf259d27746b77d933cd7e07c"
+    },
     "com.zappar.uar": {
       "version": "https://github.com/zappar-xr/universal-ar-unity.git",
       "depth": 0,
