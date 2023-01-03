@@ -47,15 +47,21 @@ public class CaseChooser : MonoBehaviour
     // With each chosen case
     public void SelectCase()
     {
-        Debug.Log(String.Format("Length {0}", casenum));
-        for (int i = 0; i < caselist.Length; i++ )
+        caselist[casenum].layer = invisi;
+        foreach (Transform child in caselist[casenum].GetComponentsInChildren<Transform>(true))
         {
-            caselist[i].layer = invisi;
-            foreach (Transform child in caselist[i].GetComponentsInChildren<Transform>(true))
-            {
-                child.gameObject.layer = invisi;
-            }
+            child.gameObject.layer = invisi;
         }
+
+        //Debug.Log(String.Format("Length {0}", casenum));
+        //for (int i = 0; i < caselist.Length; i++)
+        //{
+        //    caselist[i].layer = invisi;
+        //    foreach (Transform child in caselist[i].GetComponentsInChildren<Transform>(true))
+        //    {
+        //        child.gameObject.layer = invisi;
+        //    }
+        //}
 
         casenum = choosecase.value;
 
