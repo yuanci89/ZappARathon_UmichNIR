@@ -12,6 +12,7 @@ public class FlipCamera : MonoBehaviour
     public void Start()
     {
         cam1.UseFrontFacingCamera = cams;
+        cam1.MirrorCamera = cams;
         Debug.Log(String.Format("Front {0}", cam1.UseFrontFacingCamera));
     }
     public void OnFlip ()
