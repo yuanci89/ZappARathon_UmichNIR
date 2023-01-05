@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zappar.Additional.SNS;
 using static Zappar.Additional.SNS.ZSaveNShare;
 
 public class Screenshot : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject cases;
+    public GameObject cameraFlipButton;
+
     void Start()
     {
         ZSaveNShare.Initialize();
@@ -16,10 +20,18 @@ public class Screenshot : MonoBehaviour
     public void OnPressed()
     {
         TakeSnapshot();
-        
+        toggleButtons(false);
         Debug.Log("Snapshot Taken");
     }
-  
+ 
+ 
+    
+  private void toggleButtons(bool isActive)
+    {
+        cases.SetActive(isActive);
+        cameraFlipButton.SetActive(isActive);
+        GetComponent<Image>().enabled=isActive;
+    }
  
     public void TakeSnapshot()
     {
@@ -46,6 +58,8 @@ public class Screenshot : MonoBehaviour
     public void OnPromptClosed()
     {
         Debug.Log("Save and share prompt closed");
+        toggleButtons(true);
+
         ZSaveNShare.DeregisterSNSCallbacks(OnSaved, OnShared, OnPromptClosed);
     }
 }
